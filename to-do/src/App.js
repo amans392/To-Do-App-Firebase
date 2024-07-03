@@ -1,23 +1,18 @@
 
 import './App.css';
+import { useState } from 'react';
+import SubmitForm from './Components/SubmitForm';
 
-function App(props) {
+function App() {
+
+  const [tasks, setNewTasks] = useState([])
+  const [input, setInput] = useState("")
+  
+
   return (
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
-<form>
-  <h2 className="label-wrapper">
-    What needs to be done
-  </h2>
-  <input
-  type="text"
-  id="new-todo-input"
-  className="input-field"
-  placeholder="Type something here..."
-  >
-  </input>
-</form>
-
+    <SubmitForm input={input} setInput={setInput}></SubmitForm>
     </div>
   );
 }
