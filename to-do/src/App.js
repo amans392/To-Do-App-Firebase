@@ -12,14 +12,18 @@ function App() {
 
   
 //captures input field data values
-const handleSubmit = (event) => {
+const handleClick = (event) => {
   event.preventDefault();
   //use of spread ... operator to connect current student to new students
   // setTasks( currentTasks => [...currentTasks, value]);
-
+//creates a copy of the array of tasks
     const updatedTasks = tasks.slice();
+    //adds the value from the input field to the list of tasks
     updatedTasks.push(value);
+    //set the updated tasks state variable to the updated Tasks list
+    //then when cliecked, adds new tasks from input field
     setTasks(updatedTasks);
+    //clears the search bar value field
     setValue("");
 }
 
@@ -38,14 +42,29 @@ const handleSubmit = (event) => {
 //function for adding tasks ... spread the tasks array
 //array chnaged to tasks state variable
 
+const handleDelete = (index) => {
+//created a variable with a copied list of the array task items using .slice
+  const reducedTasks = tasks.slice();
+  //used .splice() method to remove existing element tasks by index more info on method from mdn link below
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+  reducedTasks.splice(index);
+  //set list of arrays in tasks state variable to the spliced task list
+  setTasks(reducedTasks)
+
+  // const newTasks = tasks.filter((li) => li.id !== id);
+  // setTasks(newTasks)
+
+}
 
   return (
 
- <form onSubmit={handleSubmit}>
+ <form>
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
  
   <input
+  //use of onChange event equal to change function
+  //change function defined above sets the value state to the event.target.value input field
   onChange= {change}
   type="text"
   id="new-todo-input"
@@ -54,8 +73,7 @@ const handleSubmit = (event) => {
   value={value}
   >
   </input>
-  <button type='add' 
-  >Add</button>
+  <button onClick={handleClick}>Add</button>
 
 
   <br></br>
@@ -66,10 +84,17 @@ const handleSubmit = (event) => {
   </h1>
   <ul>
     {
-
+  //callback function that creates a new array of tasks calling on each of the elements in the array
+  //returns an the task and associates it with it's index
       tasks.map((task, index) => {
         return(
-          <li key={index}>{task}</li>
+          //key listed as the indoex of the task
+          <li key={index} id={index}>{task}
+          <button 
+          onClick={() => handleDelete(index)}>
+            Delete
+          </button></li>
+          
         )
         
       })
