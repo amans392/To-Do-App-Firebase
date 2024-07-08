@@ -1,6 +1,9 @@
 
 import './App.css';
 import { useState } from 'react';
+import { initializeApp } from 'firebase/app';
+
+
 
 function App() {
 
@@ -89,7 +92,9 @@ const handleDelete = (index) => {
       tasks.map((task, index) => {
         return(
           //key listed as the indoex of the task
-          <li key={index} id={index}>{task}
+          //set key equal to {task} parameter instead of index for a unique key
+          //id set equal to index to pass in to handeDelete for delete button functionality
+          <li key={task} id={index}> {task}
           <button 
           onClick={() => handleDelete(index)}>
             Delete
