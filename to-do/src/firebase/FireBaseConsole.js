@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-
+//current-time: https://youtu.be/WpIDez53SK4?t=762
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
