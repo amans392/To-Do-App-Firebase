@@ -1,8 +1,10 @@
 
 import './App.css';
 import { useState } from 'react';
-import { initializeApp } from 'firebase/app';
 
+import SignIn from './Components/GetAuth/auth/SignIn';
+import SignUp from './Components/GetAuth/auth/SignUp';
+import AuthDetails from './Components/GetAuth/AuthDetails';
 
 
 function App() {
@@ -60,8 +62,12 @@ const handleDelete = (index) => {
 }
 
   return (
+<div>
+<SignIn></SignIn>
+<SignUp></SignUp>
+<AuthDetails></AuthDetails>
 
- <form>
+<form>
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
  
@@ -109,6 +115,9 @@ const handleDelete = (index) => {
     </div>
 </form>
   );
-}
 
+
+</div>
+  )
+}
 export default App;

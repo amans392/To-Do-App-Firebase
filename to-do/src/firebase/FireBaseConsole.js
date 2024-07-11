@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 //current-time: https://youtu.be/WpIDez53SK4?t=762
+//to deploy app: https://console.firebase.google.com/project/auth-app-886d1/overview
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
@@ -34,7 +35,7 @@ const fireBaseConfig = {
 // Initialize Firebase
 
 const app = initializeApp(fireBaseConfig);
-const auth = getAuth(app)
 
 
-export {app, auth }
+export const auth = getAuth(app);
+
