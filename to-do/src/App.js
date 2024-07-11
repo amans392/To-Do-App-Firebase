@@ -114,7 +114,6 @@ const handleDelete = (index) => {
 
     </div>
 </form>
-  );
 
 
 </div>
