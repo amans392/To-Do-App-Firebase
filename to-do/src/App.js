@@ -1,11 +1,11 @@
 
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import SignIn from './Components/GetAuth/auth/SignIn';
 import SignUp from './Components/GetAuth/auth/SignUp';
 import AuthDetails from './Components/GetAuth/AuthDetails';
-
+import { getDatabase, ref, set } from 'firebase/database';
 
 function App() {
 
@@ -15,7 +15,10 @@ function App() {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
   const [tasks, setTasks] = useState([]);
 
-  
+  useEffect(() => {
+  const q = query()
+  }, [])
+
 //captures input field data values
 const handleClick = (event) => {
   event.preventDefault();
@@ -30,7 +33,12 @@ const handleClick = (event) => {
     setTasks(updatedTasks);
     //clears the search bar value field
     setValue("");
+    
+    
 }
+
+
+
 
 // ///created click event function for add button that sets the alert to the input
 //   const click = () => {
@@ -61,12 +69,14 @@ const handleDelete = (index) => {
 
 }
 
+
+ 
+
   return (
 <div>
 <SignIn></SignIn>
 <SignUp></SignUp>
 <AuthDetails></AuthDetails>
-
 <form>
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
@@ -114,8 +124,8 @@ const handleDelete = (index) => {
 
     </div>
 </form>
-
-
+    <div className='save-button'>
+    </div>
 </div>
   )
 }

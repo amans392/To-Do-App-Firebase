@@ -1,8 +1,16 @@
 // Import the functions you need from the SDKs you need
-//current-time: https://youtu.be/WpIDez53SK4?t=762
+//working on FireStore:
+//https://youtu.be/drF8HbnW87w?t=1633
+//cloud firestore documentation: https://firebase.google.com/docs/firestore/quickstart
 //to deploy app: https://console.firebase.google.com/project/auth-app-886d1/overview
 import { initializeApp } from "firebase/app";
+//imported getAuth from Firebase for authentication feature
 import { getAuth } from 'firebase/auth';
+//imported getDatbase from Firebase for realtime Database usage feature
+import { getDatabase, ref } from "firebase/database";
+
+
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -27,8 +35,9 @@ const fireBaseConfig = {
 
   appId: process.env.REACT_APP_FIREABASE_APPID,
 
-  measurementId: process.env.REACT_APP_FIREABASE_MEASUREMENTID
+  measurementId: process.env.REACT_APP_FIREABASE_MEASUREMENTID,
 
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL
 };
 
 
@@ -37,5 +46,9 @@ const fireBaseConfig = {
 const app = initializeApp(fireBaseConfig);
 
 
+//exporting authentication variable
 export const auth = getAuth(app);
 
+//initializes Realtime Database and get a reference to the service
+//exporting database variable
+export const database = getDatabase(app);
