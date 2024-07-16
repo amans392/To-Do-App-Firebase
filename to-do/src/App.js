@@ -15,9 +15,9 @@ function App() {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
   const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-  const q = query()
-  }, [])
+  // useEffect(() => {
+  // const q = query()
+  // }, [])
 
 //captures input field data values
 const handleClick = (event) => {
@@ -33,10 +33,9 @@ const handleClick = (event) => {
     setTasks(updatedTasks);
     //clears the search bar value field
     setValue("");
-    
-    
-}
 
+}
+console.log(tasks)
 
 
 
