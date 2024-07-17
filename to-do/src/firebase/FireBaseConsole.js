@@ -1,11 +1,15 @@
 // Import the functions you need from the SDKs you need
 //working on FireStore:
+//Firebase Authentication video: https://youtu.be/rbuSx1yEgV8?t=692
 //firebase fundamentals completed: https://www.youtube.com/watch?v=BjtxPj6jRM8&t=149s
 //cloud firestore documentation: https://firebase.google.com/docs/firestore/quickstart
 //to deploy app: https://console.firebase.google.com/project/auth-app-886d1/overview
 import { initializeApp } from "firebase/app";
 //imported getAuth from Firebase for authentication feature
-import { getAuth } from 'firebase/auth';
+import { getAuth,
+  connectAuthEmulator,
+  signInWithEmailAndPassword
+ } from 'firebase/auth';
 
 //imports from Firestore
 import { getFirestore, 
@@ -54,12 +58,23 @@ const fireBaseConfig = {
 
 
 // Initialize Firebase
-
 const app = initializeApp(fireBaseConfig);
 
-
-//exporting authentication variable
+//exporting  imported getAuth function as auth conts variable with app initialization configuration
 export const auth = getAuth(app);
+//connect app to firebase emulator suite for personal testing instances of firebase
+//perfect for development and testing
+
+//set emulator to port 9099 as shown below
+// connectAuthEmulator(auth, "https://localhost:9099");
+//email and password authentication being tested
+// const loginEmailPassword = aysnc () => {
+
+// }
+
+
+
+//exported getfireStore as store const variable using app variable stored initialization configuration for firebase
 export const store = getFirestore(app);
 
 

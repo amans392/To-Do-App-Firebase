@@ -6,6 +6,7 @@ import SignIn from './Components/GetAuth/auth/SignIn';
 import SignUp from './Components/GetAuth/auth/SignUp';
 import AuthDetails from './Components/GetAuth/AuthDetails';
 import { getDatabase, ref, set } from 'firebase/database';
+import LogIn from './Components/GetAuth/auth/Login';
 import WriteUserData from './Components/FireStore/WriteUserData';
 
 function App() {
@@ -74,9 +75,11 @@ const handleDelete = (index) => {
 
   return (
 <div>
-<SignIn></SignIn>
+
+<LogIn></LogIn>
+{/* <SignIn></SignIn>
 <SignUp></SignUp>
-<AuthDetails></AuthDetails>
+<AuthDetails></AuthDetails> */}
 <form>
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
