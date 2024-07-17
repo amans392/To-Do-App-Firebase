@@ -6,6 +6,7 @@ import SignIn from './Components/GetAuth/auth/SignIn';
 import SignUp from './Components/GetAuth/auth/SignUp';
 import AuthDetails from './Components/GetAuth/AuthDetails';
 import { getDatabase, ref, set } from 'firebase/database';
+import WriteUserData from './Components/FireStore/WriteUserData';
 
 function App() {
 
@@ -124,6 +125,7 @@ const handleDelete = (index) => {
     </div>
 </form>
     <div className='save-button'>
+    <WriteUserData tasks={tasks}></WriteUserData>
     </div>
 </div>
   )
