@@ -1,13 +1,10 @@
 
 import './App.css';
 import { useEffect, useState } from 'react';
-
-import SignIn from './Components/GetAuth/auth/SignIn';
-import SignUp from './Components/GetAuth/auth/SignUp';
 import AuthDetails from './Components/GetAuth/AuthDetails';
-import { getDatabase, ref, set } from 'firebase/database';
 import LogIn from './Components/GetAuth/auth/Login';
 import WriteUserData from './Components/FireStore/WriteUserData';
+import CreateAccount from './Components/GetAuth/auth/CreateAccount';
 
 function App() {
 
@@ -77,9 +74,10 @@ const handleDelete = (index) => {
 <div>
 
 <LogIn></LogIn>
-{/* <SignIn></SignIn>
-<SignUp></SignUp>
-<AuthDetails></AuthDetails> */}
+<CreateAccount></CreateAccount>
+<AuthDetails></AuthDetails>
+
+
 <form>
     <div className="todoapp stack-large">
       <h1>ToDoList</h1>
