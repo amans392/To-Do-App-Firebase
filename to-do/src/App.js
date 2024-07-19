@@ -18,6 +18,7 @@ function App() {
   // const q = query()
   // }, [])
 
+  
 //captures input field data values
 const handleClick = (event) => {
   event.preventDefault();
@@ -75,7 +76,7 @@ const handleDelete = (index) => {
 
 <LogIn></LogIn>
 <CreateAccount></CreateAccount>
-<AuthDetails></AuthDetails>
+<AuthDetails setTasks={setTasks} tasks = {tasks}></AuthDetails>
 
 
 <form>
@@ -126,7 +127,7 @@ const handleDelete = (index) => {
     </div>
 </form>
     <div className='save-button'>
-    <WriteUserData tasks={tasks}></WriteUserData>
+    {/* <WriteUserData></WriteUserData> */}
     </div>
 </div>
   )

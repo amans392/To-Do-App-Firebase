@@ -19,13 +19,13 @@ const [password, setPassword] = useState("")
 //logIn function created to take in events from input fields
 //then use auth, username, and password to authenticate
 
-const logIn = (event) => {
+const logIn = (event, writeUserData) => {
 
     //email and password authentication being passed in from state values
     //to sign user in
     event.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
+     signInWithEmailAndPassword(auth, email, password)
     
 
     .then((userCredential) => {
