@@ -1,7 +1,6 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase/FireBaseConsole";
-import WriteUserData from "../FireStore/WriteUserData";
 import { store } from "../../firebase/FireBaseConsole";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -23,14 +22,14 @@ const AuthDetails = (tasks, setTasks) => {
             } else {
                 setAuthUser(null)
             }
-        })
+        });
 
             //ends the listener function in use from onAuthStateChanged
             return () => {
                 listen();
             }
     //added empty depenency array so it only runs when component loads
-    }, [])
+    }, []);
 
 
     //created a sign out function
@@ -40,25 +39,25 @@ const AuthDetails = (tasks, setTasks) => {
         signOut(auth).then(() => {
             console.log("Sign Out Successful")
         }).catch(error => console.log(error))
-    }
+    };
 
     
 
 
-    const userProfile = () => {
-        const user = authUser
-        if (user !== null) {
-            user.providerData.forEach((profile) => {
-              console.log("Sign-in provider: " + profile.providerId);
-              console.log("  Provider-specific UID: " + profile.uid);
-              console.log("  Name: " + profile.displayName);
-              console.log("  Email: " + profile.email);
-              console.log("  Photo URL: " + profile.photoURL);
-              console.log(user.email)
-              console.log(user.uid) 
-            }, []);
-          }
-    }
+    // const userProfile = () => {
+    //     const user = authUser
+    //     if (user !== null) {
+    //         user.providerData.forEach((profile) => {
+    //           console.log("Sign-in provider: " + profile.providerId);
+    //           console.log("  Provider-specific UID: " + profile.uid);
+    //           console.log("  Name: " + profile.displayName);
+    //           console.log("  Email: " + profile.email);
+    //           console.log("  Photo URL: " + profile.photoURL);
+    //           console.log(user.email)
+    //           console.log(user.uid) 
+    //         }, []);
+    //       }
+    // }
 
 
 
@@ -68,13 +67,13 @@ const AuthDetails = (tasks, setTasks) => {
     const userTasks = doc(store, "users/" + user.uid)
     if (user !== null) {
         const docData = {
-            name: authUser.email,
+            name: user.email,
            description: {tasks}
          };
       
          try {
             event.preventDefault()
-          await setDoc(userTasks, docData);
+          await setDoc(userTasks, docData );
           console.log("User tasks have been written to the database")
          } catch (error) {
           console.log(`I got an error! ${error}`)
@@ -82,10 +81,10 @@ const AuthDetails = (tasks, setTasks) => {
         } else {
             console.log("Feature unavailable, you are not signed in")
         }
-    }
+    };
    
     
-    userProfile()
+    // userProfile();
     
 
 

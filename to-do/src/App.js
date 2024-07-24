@@ -76,7 +76,7 @@ const handleDelete = (index) => {
 
 <LogIn></LogIn>
 <CreateAccount></CreateAccount>
-<AuthDetails setTasks={setTasks} tasks = {tasks}></AuthDetails>
+<AuthDetails tasks = {tasks}></AuthDetails>
 
 
 <form>
