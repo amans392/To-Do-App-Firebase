@@ -1,9 +1,8 @@
 
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import AuthDetails from './Components/GetAuth/AuthDetails';
 import LogIn from './Components/GetAuth/auth/Login';
-import WriteUserData from './Components/FireStore/WriteUserData';
 import CreateAccount from './Components/GetAuth/auth/CreateAccount';
 
 function App() {
@@ -35,7 +34,8 @@ const handleClick = (event) => {
     setValue("");
 
 }
-console.log(tasks)
+//logs tasks added by user to console
+// console.log(userTasks);
 
 
 
@@ -68,8 +68,6 @@ const handleDelete = (index) => {
 
 }
 
-
- 
 
   return (
 <div>
