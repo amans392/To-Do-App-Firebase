@@ -1,40 +1,40 @@
-import React from "react";
+// import React from "react";
 
-import { store } from "../../firebase/FireBaseConsole";
-import { 
-  doc, 
-  setDoc, 
-  addDoc, 
-  getDoc, 
-  collection, 
-  onSnapshot, 
-  query, 
-  where, 
-  orderBy, 
-  limit, 
-  getDocs,
- } from "firebase/firestore";
+// import { store } from "../../firebase/FireBaseConsole";
+// import { 
+//   doc, 
+//   setDoc, 
+//   addDoc, 
+//   getDoc, 
+//   collection, 
+//   onSnapshot, 
+//   query, 
+//   where, 
+//   orderBy, 
+//   limit, 
+//   getDocs,
+//  } from "firebase/firestore";
 
 
 
-const WriteUserData = (tasks) => {
+// const WriteUserData = (tasks) => {
 
-  // const specialOfTheDay = doc(store, "dailySpecial/2021-09-14");
-  const userTasks = doc(store, "taskList/2024-07-17")
+//   // const specialOfTheDay = doc(store, "dailySpecial/2021-09-14");
+//   const userTasks = doc(store, "taskList/2024-07-17")
  
-  async function writeUserTasks() {
-   const docData = {
-      name: 'guest',
-     description: {tasks}
-   };
+//   async function writeUserTasks() {
+//    const docData = {
+//       name: 'guest',
+//      description: {tasks}
+//    };
 
-   try {
-    await setDoc(userTasks, docData);
-    console.log("User tasks have been written to the database")
-   } catch (error) {
-    console.log(`I got an error! ${error}`)
-   }
-  }
+//    try {
+//     await setDoc(userTasks, docData);
+//     console.log("User tasks have been written to the database")
+//    } catch (error) {
+//     console.log(`I got an error! ${error}`)
+//    }
+//   }
  
   // async function writeDailySpecial() {
   //   const docData = {
@@ -162,10 +162,10 @@ const WriteUserData = (tasks) => {
   // })
   
   //created handleclick function to run writeUserTasks to database when saveData button is clicked
-   const handleClick = (event) => {
-    //prevents page from refreshing
-      event.preventDefault()
-      writeUserTasks()
+  //  const handleClick = (event) => {
+  //   //prevents page from refreshing
+  //     event.preventDefault()
+  //     writeUserTasks()
  
     
     
@@ -175,20 +175,20 @@ const WriteUserData = (tasks) => {
   //using a snapshot listener
   
 
-   }
-   console.log("Hello Firestore!");
-  // writeDailySpecial();
- //  addNewDocument();
- //  readASingleDocument();
- //  listenToADocument();
- //  queryForDocuments();
+//    }
+//    console.log("Hello Firestore!");
+//   // writeDailySpecial();
+//  //  addNewDocument();
+//  //  readASingleDocument();
+//  //  listenToADocument();
+//  //  queryForDocuments();
   
-  return ( <div className="save_button"> 
-    <form onSubmit={handleClick}>
-    <button>SaveData</button>
-    </form>
+//   return ( <div className="save_button"> 
+//     <form onSubmit={handleClick}>
+//     <button>SaveData</button>
+//     </form>
     
-  </div> );
-}
+//   </div> );
+// }
  
-export default WriteUserData;
+// export default WriteUserData;
