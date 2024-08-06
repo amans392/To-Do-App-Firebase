@@ -4,16 +4,23 @@ import { auth } from "../../firebase/FireBaseConsole";
 import { store } from "../../firebase/FireBaseConsole";
 import { doc, setDoc, getDoc, query, collection, where } from "firebase/firestore";
 import SaveUserData from "../FireStore/SaveUserData";
-
+import LogIn from "./auth/Login";
+import CreateAccount from "./auth/CreateAccount";
 //useEffect imported for listening capabilities
 
-const AuthDetails = (tasks) => {
+const AuthDetails = ({tasks, setUser, activeUser}) => {
     //created states for authorised users
-    const [authUser, setAuthUser] = useState(null);
+    // const [activeUser, setactiveUser] = useState(null);
 
-    //created a loading state for when data is being loaded
-    const [loading, setLoading] = useState(true);
+        //created a loading state for when data is being loaded
+    const [loading, setIsLoading] = useState(true);
 
+    //storing authenticated user data in variable currentUser
+    const currentUser = {activeUser};
+    console.log('details tasks', tasks)
+    console.log('setUser', setUser)
+
+    // setUser({currentUser});
     //created a listening variable with use of onAuthStateChanged from FireBase
     //created a listen variable that makes use of onAuthStateChanged observer function
     //takes in auth exported function anda user parameter
@@ -22,9 +29,17 @@ const AuthDetails = (tasks) => {
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setAuthUser(user)
+                setUser(user);
+                setIsLoading(false)
+                console.log("user Signed in...", user); 
+                console.log(user.uid)
+                return (user);
+                
+
+                
             } else {
-                setAuthUser(null)
+                setUser(null)
+                setIsLoading(false);
             }
         });
 
@@ -35,6 +50,9 @@ const AuthDetails = (tasks) => {
     //added empty depenency array so it only runs when component loads
     }, []);
 
+    if (loading) {
+        return <h2>Loading...</h2>
+    };
 
     //created a sign out function
     const userSignOut = () => {
@@ -44,12 +62,20 @@ const AuthDetails = (tasks) => {
             console.log("Sign Out Successful")
         }).catch(error => console.log(error))
     };
-
+    
+    const signedInUser = ({updateUser}, activeUser) => {
+        // if (activeUser !== null) {
+        //     updateUser(activeUser);
+        //     console.log("Signed in as...", activeUser);
+        updateUser(activeUser);
+        };
     
 
+        
+  
 //logging out user logged in firebase data for usage in firestore storage details
     // const userProfile = () => {
-    //     const user = authUser
+    //     const user = activeUser
     //     if (user !== null) {
     //         user.providerData.forEach((profile) => {
     //           console.log("Sign-in provider: " + profile.providerId);
@@ -70,7 +96,7 @@ const AuthDetails = (tasks) => {
  //the task data being the tasks created by the user
 
 //   async function SaveUserData(event) {
-//     const user = authUser
+//     const user = activeUser
 //     const userTasks = doc(store, "users/" + user.uid)
 //     if (user !== null) {
 //         const docData = {
@@ -99,10 +125,10 @@ const AuthDetails = (tasks) => {
     //retreiving user data listed under authenticated user uid
     async function loadUserData(event) {
         
-        if (authUser !== null) {
+        if (activeUser !== null) {
             // console.log(userId)
         event.preventDefault();
-        const userTasks = doc(store, "users", authUser.uid )
+        const userTasks = doc(store, "users", activeUser.uid )
         const mySnapshot = await getDoc(userTasks);
           //if statement used
           //checks if document exists using the .exists() method
@@ -122,14 +148,20 @@ const AuthDetails = (tasks) => {
           
         };
 
- 
-    
         
 
-        // useEffect(() => {
-        //     if (authUser !== null) {
+        // const activeUser = () =>{
+        //     console.log("Currnt User is...", currentUser);
+        // };
+
+        // activeUser();
+    
+        
+        console.log("User Currently signed in is...", activeUser)
+        // useEffect(() => { 
+        //     if (activeUser !== null) {
         //         const getTasks = [];
-        //         const userTasks = doc(store, "users", authUser.uid);
+        //         const userTasks = doc(store, "users", activeUser.uid);
         //         const mySnapshot = getDoc(userTasks);
         //         console.log(mySnapshot)
         //     }
@@ -153,20 +185,20 @@ const AuthDetails = (tasks) => {
 
 
     return ( 
-    //checks authUser state to see if user is signed in or not
+    //checks activeUser state to see if user is signed in or not
     //then displays that name in a paragraph tag
     //button added with onClick that runs sign out function then provides "Signed Out" paragraph tag
-
-    <div>
+    
+    <div >
         <form>
-        {authUser ? <><p> {`Signed In as ${authUser.email}`}</p> 
+        {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
         
         <button onClick={userSignOut}>Sign Out</button>
         {/* <button onClick={SaveUserData} className="save_btn">Save</button> */}
-        <SaveUserData tasks = {tasks} authUser = {authUser}></SaveUserData>
+        <SaveUserData tasks = {tasks} activeUser = {activeUser}></SaveUserData>
         <button onClick={loadUserData} className="load_btn">Load</button></>:
-        <p> Signed Out
-         </p> }
+        
+        <p> Signed Out</p> }
         
          </form>
     </div> 

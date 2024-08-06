@@ -13,10 +13,26 @@ function App() {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
   const [tasks, setTasks] = useState([]);
 
+  const [data, setData] = useState([]);
+
+  const [activeUser, setActiveUser] = useState(null);
+
+  // const authenticatedUser = (data) => {
+  //   setActiveUser(data);
+  //   console.log("active user is...", {data})
+  // }
+
+  const setUser = (data) => {
+    setActiveUser(data);
+  };
   // useEffect(() => {
   // const q = query()
   // }, [])
 
+
+const storeData = (data) => {
+  setData(data)
+};
   
 //captures input field data values
 const handleClick = (event) => {
@@ -74,7 +90,7 @@ const handleDelete = (index) => {
 
 <LogIn></LogIn>
 <CreateAccount></CreateAccount>
-<AuthDetails tasks = {tasks}></AuthDetails>
+<AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
 
 
 <form>
