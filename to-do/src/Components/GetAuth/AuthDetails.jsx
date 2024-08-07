@@ -8,24 +8,15 @@ import LogIn from "./auth/Login";
 import CreateAccount from "./auth/CreateAccount";
 //useEffect imported for listening capabilities
 
+
+//passed in props for tasks, setUser function and activeUser state state for tasks
 const AuthDetails = ({tasks, setUser, activeUser}) => {
-    //created states for authorised users
     // const [activeUser, setactiveUser] = useState(null);
 
         //created a loading state for when data is being loaded
     const [loading, setIsLoading] = useState(true);
 
-    //storing authenticated user data in variable currentUser
-    const currentUser = {activeUser};
-    console.log('details tasks', tasks)
-    console.log('setUser', setUser)
-
-    // setUser({currentUser});
-    //created a listening variable with use of onAuthStateChanged from FireBase
-    //created a listen variable that makes use of onAuthStateChanged observer function
-    //takes in auth exported function anda user parameter
-    //checks if a user is being authenticated and sets it as the user
-    //if not, sets the user to null
+    //useEffect hook used to make use of listener for onAuthStateChanged imported method
     useEffect(() => {
         const listen = onAuthStateChanged(auth, (user) => {
             if (user) {
@@ -62,32 +53,6 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
             console.log("Sign Out Successful")
         }).catch(error => console.log(error))
     };
-    
-    const signedInUser = ({updateUser}, activeUser) => {
-        // if (activeUser !== null) {
-        //     updateUser(activeUser);
-        //     console.log("Signed in as...", activeUser);
-        updateUser(activeUser);
-        };
-    
-
-        
-  
-//logging out user logged in firebase data for usage in firestore storage details
-    // const userProfile = () => {
-    //     const user = activeUser
-    //     if (user !== null) {
-    //         user.providerData.forEach((profile) => {
-    //           console.log("Sign-in provider: " + profile.providerId);
-    //           console.log("  Provider-specific UID: " + profile.uid);
-    //           console.log("  Name: " + profile.displayName);
-    //           console.log("  Email: " + profile.email);
-    //           console.log("  Photo URL: " + profile.photoURL);
-    //           console.log(user.email)
-    //           console.log(user.uid) 
-    //         }, []);
-    //       }
-    // }
 
 
 
@@ -147,14 +112,6 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
           }}
           
         };
-
-        
-
-        // const activeUser = () =>{
-        //     console.log("Currnt User is...", currentUser);
-        // };
-
-        // activeUser();
     
         
         console.log("User Currently signed in is...", activeUser)
@@ -187,8 +144,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
     return ( 
     //checks activeUser state to see if user is signed in or not
     //then displays that name in a paragraph tag
-    //button added with onClick that runs sign out function then provides "Signed Out" paragraph tag
-    
+    //button added onClick to run sign out function then provides "Signed Out"<p> tag
     <div >
         <form>
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
@@ -198,7 +154,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
         <SaveUserData tasks = {tasks} activeUser = {activeUser}></SaveUserData>
         <button onClick={loadUserData} className="load_btn">Load</button></>:
         
-        <p> Signed Out</p> }
+        <p> Not logged in </p> }
         
          </form>
     </div> 
