@@ -5,7 +5,7 @@ import AuthDetails from './Components/GetAuth/AuthDetails';
 import LogIn from './Components/GetAuth/auth/Login';
 import CreateAccount from './Components/GetAuth/auth/CreateAccount';
 import ToDo from './Components/ToDo';
-
+import SaveUserData from './Components/FireStore/SaveUserData'
 function App() {
 
   //state for tasks created from to-do component
@@ -50,7 +50,7 @@ const storeData = (data) => {
 
 <div className='save-button'>
     {/* <WriteUserData></WriteUserData> */}
-    
+    <SaveUserData tasks={tasks} activeUser={activeUser}></SaveUserData>
     </div>
 </div>
   )

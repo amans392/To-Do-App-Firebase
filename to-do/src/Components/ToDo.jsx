@@ -91,10 +91,8 @@ const handleClick = (event) => {
           <button 
           onClick={() => handleDelete(index)}>
             Delete
-          </button></li>
-          
-        )
-        
+          </button></li>       
+        )        
       })
     }
   </ul>
