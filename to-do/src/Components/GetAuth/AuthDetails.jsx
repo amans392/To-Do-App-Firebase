@@ -88,30 +88,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
     
     //making use of the imported getDoc method
     //retreiving user data listed under authenticated user uid
-    async function loadUserData(event) {
-        
-        if (activeUser !== null) {
-            // console.log(userId)
-        event.preventDefault();
-        const userTasks = doc(store, "users", activeUser.uid )
-        const mySnapshot = await getDoc(userTasks);
-          //if statement used
-          //checks if document exists using the .exists() method
-          //and if it does, extract information
-          if (mySnapshot.exists()) {
-            //store docData in a variable using .data() method
-            
-            const docData = mySnapshot.data();
-            //then print out a stringified version to the console
 
-            const data = docData.description.tasks
-            //logs client task data property to the console
-            console.log("User Data Loaded...", data)
-          } else {
-            console.log("No data found");
-          }}
-          
-        };
     
         
         console.log("User Currently signed in is...", activeUser)
@@ -150,11 +127,10 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
         
         <button onClick={userSignOut}>Sign Out</button>
-        {/* <button onClick={SaveUserData} className="save_btn">Save</button> */}
-        <SaveUserData tasks = {tasks} activeUser = {activeUser}></SaveUserData>
-        <button onClick={loadUserData} className="load_btn">Load</button></>:
-        
-        <p> Not logged in </p> }
+        </> :
+
+        <p> Not logged in </p> 
+        }
         
          </form>
     </div> 

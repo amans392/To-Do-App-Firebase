@@ -6,6 +6,7 @@ import LogIn from './Components/GetAuth/auth/Login';
 import CreateAccount from './Components/GetAuth/auth/CreateAccount';
 import ToDo from './Components/ToDo';
 import SaveUserData from './Components/FireStore/SaveUserData'
+import LoadUserData from './Components/FireStore/LoadUserData';
 function App() {
 
   //state for tasks created from to-do component
@@ -34,25 +35,32 @@ function App() {
     setValue(v)
   }
 
-
-const storeData = (data) => {
-  setData(data)
-};
-
-
   return (
-<div>
+    
+    <div>
 
-<LogIn></LogIn>
-<CreateAccount></CreateAccount>
-<AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-<ToDo tasks={tasks} handleTasks={handleTasks} value={value} handleValue={handleValue}></ToDo>
 
-<div className='save-button'>
-    {/* <WriteUserData></WriteUserData> */}
-    <SaveUserData tasks={tasks} activeUser={activeUser}></SaveUserData>
+
+      {activeUser ? (
+        <div className='save-load-btn'> 
+                <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
+          <h1>Welcome back!</h1>
+          <SaveUserData tasks={tasks} activeUser={activeUser}></SaveUserData>
+          <LoadUserData activeUser={activeUser}></LoadUserData>
+          <ToDo tasks={tasks} handleTasks={handleTasks} value={value} handleValue={handleValue}></ToDo>
+        </div>
+        
+        
+      ) : (
+        <div className='login-account-creation'>
+        <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
+        <LogIn></LogIn>
+        <CreateAccount></CreateAccount>
+        <ToDo tasks={tasks} handleTasks={handleTasks} value={value} handleValue={handleValue}></ToDo>
+        </div>
+      )}
     </div>
-</div>
+
   )
 }
 export default App;

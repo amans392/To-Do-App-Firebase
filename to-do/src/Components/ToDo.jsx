@@ -16,19 +16,7 @@ const handleClick = (event) => {
       handleValue("");
   
   }
-  //logs tasks added by user to console
-  // console.log(userTasks);
-  
-  
-  
-  // ///created click event function for add button that sets the alert to the input
-  //   const click = () => {
-  //     // console.log(value)
-  //     // const updatedTasks = tasks.slice();
-  //     // updatedTasks.push(value)
-  //     // handleTasks(updatedTasks)
-  
-  //   }
+
   //event that passes event object into change function
     const change = event => {
       handleValue(event.target.value)

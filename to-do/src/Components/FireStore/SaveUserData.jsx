@@ -10,7 +10,7 @@ const SaveUserData = ({tasks, activeUser}) => {
     //saved data to users collection under their accounts specific UID
     const userTasks = doc(store, "users/" + activeUser.uid)
     //checks if there's an active user then stores their email, created tasks, and user ID to their storage
-    if (activeUser !== null) {
+    if (activeUser) {
         const docData = {
             name: activeUser.email,
            description: {tasks},
