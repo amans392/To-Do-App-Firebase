@@ -43,7 +43,6 @@ const logIn = (event) => {
 
 return ( 
     <div className="login-form">
-        <h1>Log in Here</h1>
         <form onSubmit={logIn}>       
             <input 
             placeholder="Email" 

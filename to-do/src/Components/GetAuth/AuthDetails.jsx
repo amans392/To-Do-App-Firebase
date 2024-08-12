@@ -53,70 +53,8 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
             console.log("Sign Out Successful")
         }).catch(error => console.log(error))
     };
-
-
-
- //use of imported setDoc function writes the data to firestore under the users collection
- //with the document stored under their UID
- //the task data being the tasks created by the user
-
-//   async function SaveUserData(event) {
-//     const user = activeUser
-//     const userTasks = doc(store, "users/" + user.uid)
-//     if (user !== null) {
-//         const docData = {
-//             name: user.email,
-//            description: {tasks},
-//            token: user.uid
-//          };
-      
-//          try {
-//             event.preventDefault()
-//           await setDoc(userTasks, docData );
-//           console.log("User tasks have been written to the database")
-//           console.log(docData)
-//          } catch (error) {
-//           console.log(`I got an error! ${error}`)
-//          }
-//         } else {
-//             console.log("Feature unavailable, you are not signed in")
-//         }
-//     };
-   
-    //running userProfile function to log authenticated user data to the console
-    // userProfile();
-    
-    //making use of the imported getDoc method
-    //retreiving user data listed under authenticated user uid
-
-    
-        
+ 
         console.log("User Currently signed in is...", activeUser)
-        // useEffect(() => { 
-        //     if (activeUser !== null) {
-        //         const getTasks = [];
-        //         const userTasks = doc(store, "users", activeUser.uid);
-        //         const mySnapshot = getDoc(userTasks);
-        //         console.log(mySnapshot)
-        //     }
-
-
-
-        // }) 
-
-        
-
-
-        // readASingleDocument();
-        
-    
-
-    
-
-
-
-
-
 
     return ( 
     //checks activeUser state to see if user is signed in or not

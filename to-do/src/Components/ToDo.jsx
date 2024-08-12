@@ -1,10 +1,11 @@
-const ToDo = ({tasks, handleTasks, value, handleValue}) => {
+import LoadUserData from "./FireStore/LoadUserData";
+import SaveUserData from "./FireStore/SaveUserData";
+
+const ToDo = ({tasks, handleTasks, value, handleValue, activeUser, data, handleData }) => {
 
 //captures input field data values
 const handleClick = (event) => {
     event.preventDefault();
-    //use of spread ... operator to connect current student to new students
-    // handleTasks( currentTasks => [...currentTasks, value]);
   //creates a copy of the array of tasks
       const updatedTasks = tasks.slice();
       //adds the value from the input field to the list of tasks
@@ -41,55 +42,118 @@ const handleClick = (event) => {
 
     return ( 
 
+    <div>
+      {activeUser ? (
         <div>
-            <form>
-    <div className="todoapp stack-large">
-      <h1>ToDoList</h1>
+          <form>
+            <div className="todoapp-wrapper">
+              <h1>ToDoList</h1>
  
-  <input
-  //use of onChange event equal to change function
-  //change function defined above sets the value state to the event.target.value input field
-  onChange= {change}
-  type="text"
-  id="new-todo-input"
-  className="input-field"
-  placeholder="Type something here..."
-  value={value}
-  >
-  </input>
-  <button onClick={handleClick}>Add</button>
+                <input
+                //use of onChange event equal to change function
+                //change function defined above sets the value state to the event.target.value input field
+                onChange= {change}
+                type="text"
+                id="new-todo-input"
+                className="input-field"
+                placeholder="Type something here..."
+                value={value}
+                >
+                </input>
+                <button onClick={handleClick}>Add</button>
 
 
-  <br></br>
+
+              <h1 className="label-wrapper">
+                List of Tasks
+              </h1>
+                <div className="save-load-btn">
+                  <SaveUserData tasks={tasks} 
+                  activeUser={activeUser}></SaveUserData>
+                  
+                  <LoadUserData activeUser={activeUser} 
+                  data={data}
+                  handleData={handleData}
+                  tasks={tasks}
+                  handleTasks={handleTasks}>
+                  </LoadUserData>
+                </div>
+              <ul>
+                {
+                //callback function that creates a new array of tasks calling on each of the elements in the array
+                //returns an the task and associates it with it's index
+                tasks.map((task, index) => {
+                return(
+                  //key listed as the indoex of the task
+                  //set key equal to {task} parameter instead of index for a unique key
+                  //id set equal to index to pass in to handeDelete for delete button functionality
+                  <li key={task} id={index}> {task}
+                  <button 
+                  onClick={() => handleDelete(index)}>
+                    Delete
+                  </button>
+                  </li>       
+                      )}
+                    )}
+              </ul>
+            </div>
+          </form>
+        </div>
+      ) : (
+
+        <div>
+          <form>
+            <div className="todoapp-wrapper">
+              <h1>ToDoList</h1>
+        
+              <input
+              //use of onChange event equal to change function
+              //change function defined above sets the value state to the event.target.value input field
+              onChange= {change}
+              type="text"
+              id="new-todo-input"
+              className="input-field"
+              placeholder="Type something here..."
+              value={value}
+              >
+              </input>
+              <button onClick={handleClick}>Add</button>
 
 
-  <h1 className="label-wrapper">
-    List of Tasks
-  </h1>
-  <ul>
-    {
-  //callback function that creates a new array of tasks calling on each of the elements in the array
-  //returns an the task and associates it with it's index
-      tasks.map((task, index) => {
-        return(
-          //key listed as the indoex of the task
-          //set key equal to {task} parameter instead of index for a unique key
-          //id set equal to index to pass in to handeDelete for delete button functionality
-          <li key={task} id={index}> {task}
-          <button 
-          onClick={() => handleDelete(index)}>
-            Delete
-          </button></li>       
-        )        
-      })
-    }
-  </ul>
+              <br></br>
+
+
+              <h1 className="label-wrapper">
+                List of Tasks
+              </h1>
+
+              <ul>
+        
+              {
+              //callback function that creates a new array of tasks calling on each of the elements in the array
+              //returns an the task and associates it with it's index
+                  tasks.map((task, index) => {
+                    return(
+                      //key listed as the indoex of the task
+                      //set key equal to {task} parameter instead of index for a unique key
+                      //id set equal to index to pass in to handeDelete for delete button functionality
+                      <li key={task} id={index}> {task}
+                      <button 
+                      onClick={() => handleDelete(index)}>
+                        Delete
+                      </button></li>       
+                    )        
+                  })
+                };
+
+              </ul>
 
     </div>
 </form>
         </div>
-
-     );
+    )}
+    </div>
+    )
 }
  
 export default ToDo;

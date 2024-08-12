@@ -27,32 +27,36 @@ function App() {
   // const q = query()
   // }, [])
 
-  const handleTasks = (task) => {
-    setTasks(task)
-  }
+  const handleTasks = (t) => {
+    setTasks(t)
+  };
 
   const handleValue = (v) => {
     setValue(v)
-  }
+  };
+
+  const handleData = (d) => {
+    setData(d);
+    console.log("data handled:", d);
+  };
+
 
   return (
     
     <div>
-
-
-
       {activeUser ? (
-        <div className='save-load-btn'> 
-                <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-          <h1>Welcome back!</h1>
-          <SaveUserData tasks={tasks} activeUser={activeUser}></SaveUserData>
-          <LoadUserData activeUser={activeUser}></LoadUserData>
-          <ToDo tasks={tasks} handleTasks={handleTasks} value={value} handleValue={handleValue}></ToDo>
-        </div>
-        
-        
+        <div className='save-btn'> 
+        <h1>Welcome back!</h1>
+          <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
+
+          <ToDo activeUser={activeUser} tasks={tasks} handleTasks={handleTasks} value={value} 
+          handleValue={handleValue} data={data} handleData={handleData}></ToDo>
+          
+      </div>
+
       ) : (
         <div className='login-account-creation'>
+          <h1>Log In Here</h1>
         <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
         <LogIn></LogIn>
         <CreateAccount></CreateAccount>

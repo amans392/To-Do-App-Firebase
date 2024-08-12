@@ -1,7 +1,9 @@
+
 import { doc, getDoc } from "firebase/firestore";
 import { store } from "../../firebase/FireBaseConsole";
+import DataResultsList from "./DataResultsList";
 
-const LoadUserData = ({activeUser}) => {
+const LoadUserData = ({activeUser, data, handleData, tasks, handleTasks}) => {
 
     async function loadUserData(event) {
         
@@ -19,16 +21,30 @@ const LoadUserData = ({activeUser}) => {
             const docData = mySnapshot.data();
             //then print out a stringified version to the console
 
-            const data = docData.description.tasks
             //logs client task data property to the console
-            console.log("User Data Loaded...", data)
+            handleData(docData.description.tasks);
+            console.log("Current Data is:", docData.description.tasks)
+            
           } else {
             console.log("No data found");
           }}
           
         };
 
-    return ( <button onClick={loadUserData} className="load_btn">Load</button> );
+        // const displayTasks = (data) => {
+        //   handleTasks(data)
+        //   console.log(data)
+        // }
+        // displayTasks("tasks are", data)
+
+    return (       
+      <div>
+                <button onClick={loadUserData} className="load_btn">Load</button>
+
+          <DataResultsList handleData={handleData} data={data}></DataResultsList>
+      </div>  
+        
+     );
 }
  
 export default LoadUserData;
