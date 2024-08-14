@@ -60,17 +60,20 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
     //checks activeUser state to see if user is signed in or not
     //then displays that name in a paragraph tag
     //button added onClick to run sign out function then provides "Signed Out"<p> tag
-    <div >
-        <form>
+    <div className="auth-status">
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
+        <p>Welcome back!</p>
         
         <button onClick={userSignOut}>Sign Out</button>
         </> :
-
-        <p> Not logged in </p> 
-        }
+        <div className="noauth-status">
+            <p> Not logged in</p> 
+            <LogIn></LogIn>
+            
+        </div>
         
-         </form>
+        
+        }       
     </div> 
 
 );

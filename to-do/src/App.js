@@ -37,6 +37,7 @@ function App() {
 
   const handleData = (d) => {
     setData(d);
+    setTasks(d)
     console.log("data handled:", d);
   };
 
@@ -45,22 +46,19 @@ function App() {
     
     <div>
       {activeUser ? (
-        <div className='save-btn'> 
-        <h1>Welcome back!</h1>
+        <div className='auth-container'>
           <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-
           <ToDo activeUser={activeUser} tasks={tasks} handleTasks={handleTasks} value={value} 
           handleValue={handleValue} data={data} handleData={handleData}></ToDo>
           
       </div>
 
       ) : (
-        <div className='login-account-creation'>
-          <h1>Log In Here</h1>
-        <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-        <LogIn></LogIn>
-        <CreateAccount></CreateAccount>
-        <ToDo tasks={tasks} handleTasks={handleTasks} value={value} handleValue={handleValue}></ToDo>
+        <div className='no-auth-container'>    
+          <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
+          <CreateAccount></CreateAccount>
+          <ToDo tasks={tasks} handleTasks={handleTasks} 
+          value={value} handleValue={handleValue}></ToDo>
         </div>
       )}
     </div>

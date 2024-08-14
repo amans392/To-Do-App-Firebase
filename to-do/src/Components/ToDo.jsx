@@ -77,24 +77,24 @@ const handleClick = (event) => {
                   tasks={tasks}
                   handleTasks={handleTasks}>
                   </LoadUserData>
-                </div>
+            </div>
               <ul>
                 {
                 //callback function that creates a new array of tasks calling on each of the elements in the array
                 //returns an the task and associates it with it's index
-                tasks.map((task, index) => {
-                return(
-                  //key listed as the indoex of the task
-                  //set key equal to {task} parameter instead of index for a unique key
-                  //id set equal to index to pass in to handeDelete for delete button functionality
-                  <li key={task} id={index}> {task}
-                  <button 
-                  onClick={() => handleDelete(index)}>
-                    Delete
-                  </button>
-                  </li>       
-                      )}
-                    )}
+                  tasks.map((task, index) => {
+                    return(
+                      //key listed as the indoex of the task
+                      //set key equal to {task} parameter instead of index for a unique key
+                      //id set equal to index to pass in to handeDelete for delete button functionality
+                      <li key={task} id={index}> {task}
+                        <button 
+                        onClick={() => handleDelete(index)}>
+                          Delete
+                        </button>
+                      </li>       
+                          )}
+                        )}
               </ul>
             </div>
           </form>
@@ -104,7 +104,8 @@ const handleClick = (event) => {
         <div>
           <form>
             <div className="todoapp-wrapper">
-              <h1>ToDoList</h1>
+
+              <h1>To Do List</h1>
         
               <input
               //use of onChange event equal to change function
@@ -113,7 +114,7 @@ const handleClick = (event) => {
               type="text"
               id="new-todo-input"
               className="input-field"
-              placeholder="Type something here..."
+              placeholder="Type tasks here..."
               value={value}
               >
               </input>
@@ -123,36 +124,33 @@ const handleClick = (event) => {
               <br></br>
 
 
-              <h1 className="label-wrapper">
+              <h2 className="label-wrapper">
                 List of Tasks
-              </h1>
+              </h2>
 
               <ul>
-        
-              {
-              //callback function that creates a new array of tasks calling on each of the elements in the array
-              //returns an the task and associates it with it's index
+                {
+                  //callback function that creates a new array of tasks calling on each of the elements in the array
+                  //returns an the task and associates it with it's index
                   tasks.map((task, index) => {
                     return(
                       //key listed as the indoex of the task
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
-                      <li key={task} id={index}> {task}
-                      <button 
-                      onClick={() => handleDelete(index)}>
-                        Delete
-                      </button></li>       
+                      <li key={task} id={index}> 
+                        {task}                     
+                      <button onClick={() => handleDelete(index)}>Delete</button>
+                      </li>       
                     )        
                   })
                 };
 
               </ul>
-
-    </div>
-</form>
+            </div>
+          </form>
         </div>
-    )}
-    </div>
+        )}
+      </div>
     )
 }
  

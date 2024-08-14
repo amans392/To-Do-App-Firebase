@@ -42,7 +42,7 @@ const logIn = (event) => {
 };
 
 return ( 
-    <div className="login-form">
+    <div className="login-container">
         <form onSubmit={logIn}>       
             <input 
             placeholder="Email" 

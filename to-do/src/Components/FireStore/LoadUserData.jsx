@@ -1,7 +1,6 @@
 
 import { doc, getDoc } from "firebase/firestore";
 import { store } from "../../firebase/FireBaseConsole";
-import DataResultsList from "./DataResultsList";
 
 const LoadUserData = ({activeUser, data, handleData, tasks, handleTasks}) => {
 
@@ -38,10 +37,8 @@ const LoadUserData = ({activeUser, data, handleData, tasks, handleTasks}) => {
         // displayTasks("tasks are", data)
 
     return (       
-      <div>
-                <button onClick={loadUserData} className="load_btn">Load</button>
-
-          <DataResultsList handleData={handleData} data={data}></DataResultsList>
+      <div className="load_btn">
+                <button onClick={loadUserData} >Load</button>
       </div>  
         
      );

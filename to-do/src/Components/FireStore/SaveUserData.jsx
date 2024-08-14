@@ -1,6 +1,5 @@
 import { store } from "../../firebase/FireBaseConsole"
 import { doc, setDoc } from "firebase/firestore"
-import AuthDetails from "../GetAuth/AuthDetails"
 
 //passed in tasks state and activeUser function from App.js
 const SaveUserData = ({tasks, activeUser}) => {
@@ -15,27 +14,27 @@ const SaveUserData = ({tasks, activeUser}) => {
             name: activeUser.email,
            description: {tasks},
            token: activeUser.uid
-         };
+          };
       
-         try {
-
+      try {
             //prevents page from rendering so that created tasks can be saved
-            event.preventDefault()
+            event.preventDefault();
             //waits on user tasks and docData below being collected before writing data to the database
-          await setDoc(userTasks, docData );
-          console.log("User tasks have been written to the database")
-          console.log(docData)
-         } catch (error) {
-          console.log(`I got an error! ${error}`)
-         }
-        } else {
-            console.log("Feature unavailable, you are not signed in")
-        }
-    };
+            await setDoc(userTasks, docData );
+            console.log("User tasks have been written to the database");
+            console.log(docData);
+          } catch (error) {
+              console.log(`I got an error! ${error}`);          
+          }} else {
+              console.log("Feature unavailable, you are not signed in");
+                 }
+          };
 
     return (
         //creates a save button that runs the SaveUserData function defined above
+        <div className="save-btn">
             <button onClick={SaveUserData}>Save</button>
+        </div>
      );
 }
  

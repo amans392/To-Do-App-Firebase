@@ -30,7 +30,9 @@ const CreateAccount = () => {
     return (
         //form with inputs created for capturing email and password information
         <div className="create-account-container">
-            <form onSubmit={createAccount}>  
+            
+            <form onSubmit={createAccount}>
+            <p>Create an account</p>  
                 <input
                     type="email"
                     placeholder="Enter email"

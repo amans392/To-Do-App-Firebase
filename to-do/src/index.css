@@ -11,3 +11,119 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styling for when user is not authenticated */
+/* authentication status and account creation */
+
+.noauth-status p {
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.noauth-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid blue;
+  border-right: 5px;
+  max-width: 600px;
+  
+}
+
+.noauth-status input {
+  padding-right: 20px;
+  margin-left: 10px;
+}
+
+.noauth-status button:hover {
+  cursor: pointer;
+}
+
+/* styling create account section */
+.create-account-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid blue;
+  border-right: 5px;
+  max-width: 600px;
+}
+
+.create-account-container input { 
+  padding-right: 20px;
+  margin-left: 10px;
+}
+.create-account-container p { 
+ font-weight: bold;
+ padding-left: 10px;
+}
+.create-account-container button:hover {
+  cursor: pointer;
+}
+
+
+/* styling authenticated login status */
+
+.noauth-status p {
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.noauth-status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid blue;
+  border-right: 5px;
+  max-width: 600px;
+  
+}
+
+.auth-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid blue;
+  border-right: 5px;
+  max-width: 600px;
+}
+
+.auth-status button {
+  
+}
+
+.auth-status p {
+  font-weight: bold;
+}
+/* styling To-Do App Container */
+
+.todoapp-wrapper {
+  /* display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 250px;  */
+}
+
+.todoapp-wrapper button {
+  max-width: 50px;
+}
+
+.todoapp-wrapper button:hover {
+  cursor: pointer;
+}
+
