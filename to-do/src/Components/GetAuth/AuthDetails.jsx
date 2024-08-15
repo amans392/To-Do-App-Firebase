@@ -66,8 +66,9 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
         
         <button onClick={userSignOut}>Sign Out</button>
         </> :
+        
         <div className="noauth-status">
-            <p> Not logged in</p> 
+            
             <LogIn></LogIn>
             
         </div>
