@@ -1,3 +1,7 @@
+//Add Bootstrap styling: https://getbootstrap.com/docs/5.3/components/buttons/
+//widen margin for save and load button
+
+
 import LoadUserData from "./FireStore/LoadUserData";
 import SaveUserData from "./FireStore/SaveUserData";
 
@@ -15,7 +19,6 @@ const handleClick = (event) => {
       handleTasks(updatedTasks);
       //clears the search bar value field
       handleValue("");
-  
   }
 
   //event that passes event object into change function
@@ -30,10 +33,12 @@ const handleClick = (event) => {
     const reducedTasks = tasks.slice();
     //used .splice() method to remove existing element tasks by index more info on method from mdn link below
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-    reducedTasks.splice(index);
+    console.log("Item deleted", index)
+    reducedTasks.splice(index, 1);
     //set list of arrays in tasks state variable to the spliced task list
     handleTasks(reducedTasks)
-  
+    
+    
     // const newTasks = tasks.filter((li) => li.id !== id);
     // handleTasks(newTasks)
   
@@ -47,7 +52,7 @@ const handleClick = (event) => {
         <div>
           <form>
             <div className="todoapp-wrapper">
-              <h1>ToDoList</h1>
+              <h1>To Do App</h1>
  
                 <input
                 //use of onChange event equal to change function
@@ -82,13 +87,13 @@ const handleClick = (event) => {
                 {
                 //callback function that creates a new array of tasks calling on each of the elements in the array
                 //returns an the task and associates it with it's index
-                  tasks.map((task, index) => {
+                  tasks.map((task, index, key, id) => {
                     return(
                       //key listed as the indoex of the task
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
-                      <li key={task} id={index}> {task}
-                        <button 
+                      <li key={task} id={index}> {task} {index}
+                        <button
                         onClick={() => handleDelete(index)}>
                           Delete
                         </button>
@@ -121,9 +126,6 @@ const handleClick = (event) => {
               <button onClick={handleClick}>Add</button>
 
 
-              <br></br>
-
-
               <h2 className="label-wrapper">
                 List of Tasks
               </h2>
@@ -137,9 +139,9 @@ const handleClick = (event) => {
                       //key listed as the indoex of the task
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
-                      <li key={task} id={index}> 
-                        {task}                     
-                      <button onClick={() => handleDelete(index)}>Delete</button>
+                      <li key={task}> 
+                        {task}                 
+                      {/* <button onClick={() => handleDelete(index)}>Delete</button> */}
                       </li>       
                     )        
                   })

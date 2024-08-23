@@ -1,7 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase/FireBaseConsole";
-//imported connectAuthEmulator for testing
-import { connectAuthEmulator } from "firebase/auth";
 //imported useState to store email and password as state values
 import { useState } from "react";
 

@@ -1,11 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useState, useEffect } from "react";
 import { auth } from "../../firebase/FireBaseConsole";
-import { store } from "../../firebase/FireBaseConsole";
-import { doc, setDoc, getDoc, query, collection, where } from "firebase/firestore";
-import SaveUserData from "../FireStore/SaveUserData";
 import LogIn from "./auth/Login";
-import CreateAccount from "./auth/CreateAccount";
 //useEffect imported for listening capabilities
 
 
@@ -39,7 +35,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
                 listen();
             }
     //added empty depenency array so it only runs when component loads
-    }, []);
+    }, [setUser]);
 
     if (loading) {
         return <h2>Loading...</h2>
@@ -54,7 +50,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
         }).catch(error => console.log(error))
     };
  
-        console.log("User Currently signed in is...", activeUser)
+        // console.log("User Currently signed in is...", activeUser)
 
     return ( 
     //checks activeUser state to see if user is signed in or not
@@ -62,9 +58,8 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
     //button added onClick to run sign out function then provides "Signed Out"<p> tag
     <div className="auth-status">
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
-        <p>Welcome back!</p>
-        
         <button onClick={userSignOut}>Sign Out</button>
+        <p>Welcome back!</p>
         </> :
         
         <div className="noauth-status">
