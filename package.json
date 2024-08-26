@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "firebase": "^10.12.3"
+    "bootstrap": "^5.3.3",
+    "firebase": "^10.12.3",
+    "react-bootstrap": "^2.10.4"
   },
   "devDependencies": {
     "webpack": "^5.92.1",

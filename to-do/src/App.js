@@ -1,5 +1,3 @@
-
-import './App.css';
 import { useState } from 'react';
 import AuthDetails from './Components/GetAuth/AuthDetails';
 import LogIn from './Components/GetAuth/auth/Login';

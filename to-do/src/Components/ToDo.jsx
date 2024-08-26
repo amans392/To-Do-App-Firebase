@@ -1,7 +1,4 @@
 //Add Bootstrap styling: https://getbootstrap.com/docs/5.3/components/buttons/
-//widen margin for save and load button
-
-
 import LoadUserData from "./FireStore/LoadUserData";
 import SaveUserData from "./FireStore/SaveUserData";
 
@@ -72,7 +69,7 @@ const handleClick = (event) => {
               <h1 className="label-wrapper">
                 List of Tasks
               </h1>
-                <div className="save-load-btn">
+                <div className="save-load-container">
                   <SaveUserData tasks={tasks} 
                   activeUser={activeUser}></SaveUserData>
                   
@@ -92,7 +89,9 @@ const handleClick = (event) => {
                       //key listed as the indoex of the task
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
-                      <li key={task} id={index}> {task} {index}
+                      <li key={task} id={index}>
+                        {/* <input type="checkbox"></input> */}
+                         {task}
                         <button
                         onClick={() => handleDelete(index)}>
                           Delete
@@ -140,12 +139,15 @@ const handleClick = (event) => {
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
                       <li key={task}> 
-                        {task}                 
-                      {/* <button onClick={() => handleDelete(index)}>Delete</button> */}
+                        {task}    
+                        <button
+                        onClick={() => handleDelete(index)}>
+                          Delete
+                        </button>            
                       </li>       
                     )        
                   })
-                };
+                }
 
               </ul>
             </div>

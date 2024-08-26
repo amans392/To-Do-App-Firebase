@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: beige;
 }
 
 code {
@@ -105,18 +106,27 @@ body {
   max-width: 250px; 
 }
 
+.todoapp-wrapper input {
+  margin-top: 5px;
+}
+
 .todoapp-wrapper button {
   max-width: 50px;
-  margin-top: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .todoapp-wrapper button:hover {
   cursor: pointer;
 }
 
-.save-load-btn {
+.save-load-container {
   display: flex;
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+.save-btn {
+  margin-right: 10px;
 }
 
 .todoapp-wrapper ul {
@@ -128,11 +138,17 @@ body {
 .todoapp-wrapper li {
   padding: 5px;
   width: 200px;
-  max-width: 300px;
-  /* border-bottom: 2px solid black; */
+  max-width: 400px;
+  list-style: none;
+  border: 1px solid black;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.todoapp-wrapper ul li input {
+  margin-right: 10px;
 }
 
 .todoapp-wrapper li button { 
   margin-left: 5px;
-  /* border-bottom: 2px solid black; */
 }
