@@ -43,7 +43,7 @@ body {
 
 .noauth-status input {
   margin-right: 20px;
-  width: 200px;
+  width: 175px;
 }
 
 .noauth-status button:hover {
@@ -62,7 +62,7 @@ body {
 
 .create-account-container input { 
   margin-right: 20px;
-  width: 200px;
+  width: 175px;
 }
 .create-account-container p { 
  font-weight: bold;
@@ -108,6 +108,7 @@ body {
 
 .todoapp-wrapper input {
   margin-top: 5px;
+  width: 250px;
 }
 
 .todoapp-wrapper button {
@@ -143,10 +144,6 @@ body {
   border: 1px solid black;
   margin-top: 10px;
   text-align: center;
-}
-
-.todoapp-wrapper ul li input {
-  margin-right: 10px;
 }
 
 .todoapp-wrapper li button { 
