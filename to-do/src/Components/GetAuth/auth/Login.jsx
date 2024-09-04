@@ -29,12 +29,13 @@ const logIn = (event) => {
 
     .then((userCredential) => {
         console.log(userCredential);
+        //sets email and password fields to empty string
         setEmail("")
         setPassword("")
     })
     .catch((error) => {
         console.log(error)
-        alert("incorrect username or password " + error)
+        alert("incorrect username or password")
         
     })
 };

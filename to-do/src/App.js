@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import AuthDetails from './Components/GetAuth/AuthDetails';
-import LogIn from './Components/GetAuth/auth/Login';
 import CreateAccount from './Components/GetAuth/auth/CreateAccount';
 import ToDo from './Components/ToDo';
-import SaveUserData from './Components/FireStore/SaveUserData'
-import LoadUserData from './Components/FireStore/LoadUserData';
+
 function App() {
 
   //state for tasks created from to-do component
@@ -21,9 +19,6 @@ function App() {
   const setUser = (user) => {
     setActiveUser(user);
   };
-  // useEffect(() => {
-  // const q = query()
-  // }, [])
 
   const handleTasks = (t) => {
     setTasks(t)
@@ -42,7 +37,8 @@ function App() {
 
   return (
     
-    <div>
+    <div className="app-container">
+      <h1>Firebase To-Do List App</h1>
       {activeUser ? (
         <div className='auth-container'>
           <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>

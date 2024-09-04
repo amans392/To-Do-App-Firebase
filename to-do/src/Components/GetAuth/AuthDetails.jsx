@@ -19,10 +19,8 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
                 setUser(user);
                 setIsLoading(false)
                 console.log("user Signed in...", user); 
-                console.log(user.uid)
+                // console.log(user.uid)
                 return (user);
-                
-
                 
             } else {
                 setUser(null)
@@ -60,6 +58,7 @@ const AuthDetails = ({tasks, setUser, activeUser}) => {
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
         <button onClick={userSignOut}>Sign Out</button>
         <p>Welcome back!</p>
+
         </> :
         
         <div className="noauth-status">

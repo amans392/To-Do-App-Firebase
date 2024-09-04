@@ -19,15 +19,20 @@ code {
 
 }
 
+/* styling body */
 body {
   width: 100%;
   height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
 }
-/* styling for when user is not authenticated */
-/* authentication status and account creation */
 
+/* styling overall app container */
+.app-container h1 {
+  text-align: center;
+}
+
+/* authentication section start */
 .login-container p {
   font-weight: bold;
 }
@@ -49,8 +54,9 @@ body {
 .noauth-status button:hover {
   cursor: pointer;
 }
+/* authentication section end */
 
-/* styling create account section */
+/* account creation section start */
 .create-account-container {
   display: flex;
   flex-direction: row;
@@ -75,8 +81,9 @@ body {
   width: 65px
 }
 
+/* account creation section end */
 
-/* styling authenticated login status */
+/* login status section start*/
 
 .auth-status {
   display: flex;
@@ -97,7 +104,10 @@ body {
   font-weight: bold;
   padding-top: 10px;
 }
-/* styling To-Do App Container */
+
+/* login status end */
+
+/* To-Do App Container start */
 
 .todoapp-wrapper {
   display: flex;
@@ -149,3 +159,5 @@ body {
 .todoapp-wrapper li button { 
   margin-left: 5px;
 }
+
+/* to-do app container end */
