@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import AuthDetails from './Components/GetAuth/AuthDetails.tsx';
-import CreateAccount from './Components/GetAuth/auth/CreateAccount.tsx';
-import ToDo from './Components/ToDo.tsx';
+import AuthDetails from './Components/GetAuth/AuthDetails';
+import CreateAccount from './Components/GetAuth/auth/CreateAccount';
+import ToDo from './Components/ToDo.js';
 import React from 'react';
 
 function App() {

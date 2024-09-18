@@ -1,6 +1,6 @@
 
 import { doc, getDoc } from "firebase/firestore";
-import { store } from "../../firebase/FireBaseConsole.tsx";
+import { store } from "../../firebase/FireBaseConsole";
 import React from 'react';
 const LoadUserData = ({activeUser, data, handleData, tasks, handleTasks}) => {
 

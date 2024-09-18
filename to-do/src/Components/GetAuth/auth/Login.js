@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase/FireBaseConsole.tsx";
+import { auth } from "../../../firebase/FireBaseConsole";
 //imported useState to store email and password as state values
 import { useState } from "react";
 import React from 'react';

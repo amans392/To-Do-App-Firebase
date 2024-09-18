@@ -1,7 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useState, useEffect } from "react";
-import { auth } from "../../firebase/FireBaseConsole.tsx";
-import LogIn from "./auth/Login.tsx";
+import { auth } from "../../firebase/FireBaseConsole";
+import LogIn from "./auth/Login.js";
 //useEffect imported for listening capabilities
 
 

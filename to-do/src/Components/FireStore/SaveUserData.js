@@ -1,4 +1,4 @@
-import { store } from "../../firebase/FireBaseConsole.tsx"
+import { store } from "../../firebase/FireBaseConsole"
 import { doc, setDoc } from "firebase/firestore"
 import React from 'react';
 //passed in tasks state and activeUser function from App.js

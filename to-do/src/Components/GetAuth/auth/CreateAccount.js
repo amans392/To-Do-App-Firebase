@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase/FireBaseConsole.tsx";
+import { auth } from "../../../firebase/FireBaseConsole";
 import React from 'react';
 const CreateAccount = () => {
     

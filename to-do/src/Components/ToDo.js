@@ -1,6 +1,6 @@
 //Add Bootstrap styling: https://getbootstrap.com/docs/5.3/components/buttons/
-import LoadUserData from "./FireStore/LoadUserData.tsx";
-import SaveUserData from "./FireStore/SaveUserData.tsx";
+import LoadUserData from "./FireStore/LoadUserData";
+import SaveUserData from "./FireStore/SaveUserData";
 import React from 'react';
 
 const ToDo = ({tasks, handleTasks, value, handleValue, activeUser, data, handleData }) => {
