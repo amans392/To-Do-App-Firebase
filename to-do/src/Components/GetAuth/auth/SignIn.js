@@ -5,17 +5,15 @@ import { useState } from "react";
 import React from 'react';
 
 //passed in event from email and password onChange
-const LogIn = () => {
+const SignIn = ({handleToggle, }) => {
 
- //set emulator to port 9099 as shown below
-
-//state variables created for email and password setting in scope of login component
+//state variables created for email and password setting in scope of SignIn component
 //for use between functions
 const [email, setEmail] = useState("")
 const [password, setPassword] = useState("")
 
 
-//logIn function created to take in events from input fields
+//logIn function created to capture events from input fields
 //then use auth, username, and password to authenticate
 
 const logIn = (event) => {
@@ -30,9 +28,11 @@ const logIn = (event) => {
 
     .then((userCredential) => {
         console.log(userCredential);
+        
         //sets email and password fields to empty string
         setEmail("")
-        setPassword("")
+        setPassword("") 
+        
     })
     .catch((error) => {
         console.log(error)
@@ -43,29 +43,31 @@ const logIn = (event) => {
 
 return ( 
     <div className="login-container">
-        <p> Login</p> 
-        <form onSubmit={logIn}>       
-            <input 
-            placeholder="Email" 
-            type="Email"
-            value={email} 
-            onChange={(event) => setEmail(event.target.value)}
-            ></input>
+        <form>      
+            <h2> Login </h2>  
+                <input 
+                placeholder="Enter email" 
+                type="Email"
+                value={email} 
+                onChange={(event) => setEmail(event.target.value)}
+                ></input>
 
-            <input 
-            placeholder="Password" 
-            type="password"
-             value={password} 
-             onChange={(event) => setPassword(event.target.value)}
-             ></input>
+                <input 
+                placeholder="Enter password" 
+                type="password"
+                value={password} 
+                onChange={(event) => setPassword(event.target.value)}
+                ></input>
 
-            <button>Login</button>
+                <button onClick={logIn}>Login</button>
+
+                <button type = "submit" className="sign-up-btn" onClick={handleToggle}>Sign Up</button>
         </form>
     </div>
 
 );
 }
 
-export default LogIn;
+export default SignIn;
 
 

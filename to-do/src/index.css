@@ -57,6 +57,33 @@ body {
 /* authentication section end */
 
 /* account creation section start */
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid blue;
+
+}
+
+.login-container input { 
+  margin-right: 20px;
+  width: 175px;
+}
+.login-container p { 
+ font-weight: bold;
+}
+.login-container button:hover {
+  cursor: pointer;
+}
+
+.login-container button {
+  width: 65px
+}
+
+
 .create-account-container {
   display: flex;
   flex-direction: row;
@@ -79,6 +106,21 @@ body {
 
 .create-account-container button {
   width: 65px
+}
+
+
+
+.sign-up-btn {
+  all: unset;
+  display: flex;
+  margin-top: 10px;
+}
+
+.login-btn {
+  all: unset;
+  display: flex;
+  margin-top: 10px;
+  
 }
 
 /* account creation section end */

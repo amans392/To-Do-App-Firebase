@@ -1,8 +1,13 @@
+//working on authentication and routing: https://www.youtube.com/watch?v=PngrpszT3aY
+//current-time: https://youtu.be/PngrpszT3aY?t=699
+
 import { useState } from 'react';
-import AuthDetails from './Components/GetAuth/AuthDetails';
-import CreateAccount from './Components/GetAuth/auth/CreateAccount';
-import ToDo from './Components/ToDo.js';
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { ProtectedRoute } from './Components/ProtectedRoute.js';
+import Home from './Components/Pages/Home.js';
+import Private from './Components/Pages/Private.js';
+
 
 function App() {
 
@@ -22,42 +27,48 @@ function App() {
   };
 
   const handleTasks = (t) => {
-    setTasks(t)
+    setTasks(t);
   };
 
   const handleValue = (v) => {
-    setValue(v)
+    setValue(v);
   };
 
   const handleData = (d) => {
     setData(d);
-    setTasks(d)
-    console.log("data handled:", d);
+    setTasks(d);
   };
-
 
   return (
     
     <div className="app-container">
       <h1>Firebase To-Do List App</h1>
-      {activeUser ? (
-        <div className='auth-container'>
-          <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-          <ToDo activeUser={activeUser} tasks={tasks} handleTasks={handleTasks} value={value} 
-          handleValue={handleValue} data={data} handleData={handleData}></ToDo>
-          
-      </div>
 
-      ) : (
-        <div className='no-auth-container'>    
-          <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
-          <CreateAccount></CreateAccount>
-          <ToDo tasks={tasks} handleTasks={handleTasks} 
-          value={value} handleValue={handleValue}></ToDo>
-        </div>
-      )}
+      <BrowserRouter>
+        <Routes>
+            <Route index path="/" element={<Home
+                tasks={tasks} handleTasks={handleTasks} setUser={setUser}
+                activeUser={activeUser} value={value} handleValue={handleValue}
+              />}>
+            </Route>
+
+          <Route
+              path="/home" element={<Home
+              tasks={tasks} handleTasks={handleTasks} setUser={setUser}
+              activeUser={activeUser} value={value} handleValue={handleValue}
+              />}>
+          </Route>
+
+          <Route path="/private" 
+                element={<ProtectedRoute activeUser={activeUser}>
+                  <Private tasks={tasks} setUser={setUser} activeUser={activeUser} value={value} 
+                  handleValue={handleValue} data={data} 
+                  handleData={handleData} handleTasks={handleTasks}
+                  /> </ProtectedRoute>}
+          ></Route>  
+        </Routes>
+      </BrowserRouter>
     </div>
-
   )
 }
 export default App;

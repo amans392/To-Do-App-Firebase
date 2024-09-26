@@ -35,16 +35,13 @@ const handleClick = (event) => {
     reducedTasks.splice(index, 1);
     //set list of arrays in tasks state variable to the spliced task list
     handleTasks(reducedTasks)
-    
-    
-    // const newTasks = tasks.filter((li) => li.id !== id);
-    // handleTasks(newTasks)
   
   }
 
 
     return ( 
-
+      //if activeUser exists and is authenticated, it renders the to-do app component with LoadUserData and SaveUserData components
+      //if not, it only renders the base todo component
     <div>
       {activeUser ? (
         <div>
@@ -87,11 +84,10 @@ const handleClick = (event) => {
                 //returns an the task and associates it with it's index
                   tasks.map((task, index, key, id) => {
                     return(
-                      //key listed as the indoex of the task
+                      //key listed as the task itself
                       //set key equal to {task} parameter instead of index for a unique key
                       //id set equal to index to pass in to handeDelete for delete button functionality
                       <li key={task} id={index}>
-                        {/* <input type="checkbox"></input> */}
                          {task}
                         <button
                         onClick={() => handleDelete(index)}>
@@ -138,7 +134,7 @@ const handleClick = (event) => {
                     return(
                       //key listed as the indoex of the task
                       //set key equal to {task} parameter instead of index for a unique key
-                      //id set equal to index to pass in to handeDelete for delete button functionality
+                      //handleDelete takes in index parameter of task
                       <li key={task}> 
                         {task}    
                         <button
@@ -155,7 +151,7 @@ const handleClick = (event) => {
           </form>
         </div>
         )}
-      </div>
+    </div>
     )
 }
  
