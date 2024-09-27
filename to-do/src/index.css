@@ -29,12 +29,13 @@ body {
 
 /* styling overall app container */
 .app-container h1 {
-  text-align: center;
+  /* text-align: center; */
+
 }
 
 /* authentication section start */
-.login-container p {
-  font-weight: bold;
+.login-container h2 {
+  margin-bottom: 10px;
 }
 
 .noauth-status {
@@ -43,7 +44,13 @@ body {
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+
   
+}
+
+.welcome-p {
+  border-bottom: 2px solid blue;
+  padding-bottom: 10px;
 }
 
 .noauth-status input {
@@ -97,8 +104,8 @@ body {
   margin-right: 20px;
   width: 175px;
 }
-.create-account-container p { 
- font-weight: bold;
+.create-account-container h2 { 
+ margin-bottom: 10px;
 }
 .create-account-container button:hover {
   cursor: pointer;
@@ -126,14 +133,18 @@ body {
 /* account creation section end */
 
 /* login status section start*/
-
+.auth-container {
+  
+}
 .auth-status {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-bottom: 5px;
-  border-bottom: 2px solid blue;
+  border-top: 2px solid blue;
+  /* border-bottom: 2px solid blue; */
+
   
 }
 
@@ -145,6 +156,7 @@ body {
 .auth-status p {
   font-weight: bold;
   padding-top: 10px;
+  
 }
 
 /* login status end */

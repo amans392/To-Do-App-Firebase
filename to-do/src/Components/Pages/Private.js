@@ -6,7 +6,7 @@ import ToDo from "../ToDo";
 const Private = ({tasks, setUser, activeUser, value, handleValue, data, handleData, handleTasks}) => {
     return ( 
 
-        <div className='auth-container'>
+        <div>
         <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser} handleData={handleData}></AuthDetails>
         <ToDo activeUser={activeUser} tasks={tasks} handleTasks={handleTasks} value={value} 
             handleValue={handleValue} data={data} handleData={handleData}></ToDo>

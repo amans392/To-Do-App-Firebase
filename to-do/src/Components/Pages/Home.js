@@ -25,7 +25,7 @@ const Home = ({tasks, handleTasks, setUser, activeUser, value, handleValue }) =>
   };
 
   return (   
-        <div className='no-auth-container'>    
+        <div>    
         <AuthDetails tasks={tasks} setUser={setUser} activeUser={activeUser}></AuthDetails>
     
         { isToggled && <SignIn handleToggle={handleToggle}> </SignIn>} 
