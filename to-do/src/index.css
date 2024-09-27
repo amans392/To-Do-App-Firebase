@@ -123,10 +123,21 @@ body {
   margin-top: 10px;
 }
 
+.sign-up-btn:hover {
+  cursor: pointer;
+  color: darkslategray;
+}
+
 .login-btn {
   all: unset;
   display: flex;
   margin-top: 10px;
+  
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  color: darkslategray;
   
 }
 
