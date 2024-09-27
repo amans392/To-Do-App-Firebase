@@ -57,7 +57,7 @@ const AuthDetails = ({handleData, setUser, activeUser}) => {
     <div className="auth-status">
         {activeUser ? <><p> {`Signed In as ${activeUser.email}`}</p> 
         <button onClick={userSignOut}>Sign Out</button>
-        <p>Welcome back!</p>
+        <p className="welcome-p">Welcome back!</p>
         <Navigate to="/private"></Navigate>
         </> :
 

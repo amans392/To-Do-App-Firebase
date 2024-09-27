@@ -64,9 +64,9 @@ const handleClick = (event) => {
 
 
 
-              <h1 className="label-wrapper">
+              <h2 className="label-wrapper">
                 List of Tasks
-              </h1>
+              </h2>
                 <div className="save-load-container">
                   <SaveUserData tasks={tasks} 
                   activeUser={activeUser}></SaveUserData>
