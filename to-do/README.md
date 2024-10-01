@@ -1,70 +1,56 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- link to template: https://gist.github.com/martensonbj/6bf2ec2ed55f5be723415ea73c4557c4#project-name--pitch -->
 
-## Available Scripts
+# Firebase To-Do List App
 
-In the project directory, you can run:
+An application used to create a list of tasks to do, then with use of the hosting, authentication and storage features of Firebase, allow a user to create an account using email and password, sign into their account and be taken to a page with additional features to save their tasks and load them.
 
-### `npm start`
+Project Screen Shots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Home Page
+![Alt text](./Images/LoginScreenshot.png "Home page")
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Authenticated page
+![Alt text](./Images/AuthenticatedScreenshot.png "Authenticated page")
 
-### `npm test`
+Installation and Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone down this repository. You will need node and npm installed globally on your machine.
 
-### `npm run build`
+Installation:
+```
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To Run Test Suite:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm test
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To Start Server:
 
-### `npm run eject`
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To Visit App:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+localhost:3000/ideas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+### Reflection:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This was a personal project to work React using the noSQL database Firebase as the back end. back end.
 
-## Learn More
+### What did you set out to build?
+I set out to build a web applicatoin that allows a user to create tasks standard to a to-do list app, but also wanted to make use of firebase to have users create an account to sign into the app granting them the ability to store user specific data on their logged in profile so that they can save and load it as needed while logged in.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Challenges:
+This project was challenging in getting the React components and data to make use of firebase's authentication and storage feature working for users who are authenticated and associating their saved data with their accounts so they could save it and load it when signed in under their profile.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As a result, I was able to create what I set out to do and plan to implement the storage and authentication feature in another personal project down the line.
 
-### Code Splitting
+### What were some unexpected obstacles?
+Some obstacles encountered, were getting the authentication and save/load features using Firestore to work with the authenticated user's data.  Had to do a bit of digging and testing with the firebase documentation and resources to figure out the best way to get it working.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### What tools did you use to implement this project?
+I made use of create-react app and Firebase as there was a wealth of documentationw for React in the firebase site and I had created a project prior using create-react app and decided to use it for it's setup simplicity as a starting point for my personal projects.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Tecnologies implemented:
+ 18.3.1, React Router Din 6.26.2 and Firebase 10.13.1 written with React Javascript.  As a result, I was able to get each of the feature's I planned to implement working in the way I envisioned and plan to use for future personal projects.
