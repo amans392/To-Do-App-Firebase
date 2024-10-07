@@ -1,6 +1,3 @@
-
-<!-- link to template: https://gist.github.com/martensonbj/6bf2ec2ed55f5be723415ea73c4557c4#project-name--pitch -->
-
 # Firebase To-Do List App
 
 An application used to create a list of tasks to do, then with use of the hosting, authentication and storage features of Firebase, allow a user to create an account using email and password, sign into their account and be taken to a page with additional features to save their tasks and load them.
@@ -15,7 +12,7 @@ Project Screen Shots
 
 Installation and Setup Instructions
 
-Clone down this repository. You will need node and npm installed globally on your machine.
+Clone down this repository. You will need Node 20.10.0 and npm 10.2.5 installed globally on your machine.
 
 Installation:
 ```
