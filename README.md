@@ -5,10 +5,10 @@ An application used to create a list of tasks to do, then with use of the hostin
 Project Screen Shots
 
 ## Home Page
-![Alt text](./Images/LoginScreenshot.png "Home page")
+![Alt text](/to-do/Images/LoginScreenshot.png "Home page")
 
 ## Authenticated page
-![Alt text](./Images/AuthenticatedScreenshot.png "Authenticated page")
+![Alt text](/to-do/Images/AuthenticatedScreenshot.png "Authenticated page")
 
 Installation and Setup Instructions
 
