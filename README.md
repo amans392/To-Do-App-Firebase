@@ -36,7 +36,8 @@ localhost:3000/ideas
 This was a personal project to work React using the noSQL database Firebase as the back end. back end.
 
 ### What did you set out to build?
-I set out to build a web applicatoin that allows a user to create tasks standard to a to-do list app, but also wanted to make use of firebase to have users create an account to sign into the app granting them the ability to store user specific data on their logged in profile so that they can save and load it as needed while logged in.
+I set out to build a CRUD web applicatoin that allows a user to create tasks standard to a to-do list app, but also wanted to make use of firebase, the noSQL database firestore, and firebase authentication
+to have users create an account to sign into the app granting them the ability to store user specific data on their logged in profile so that they can save and load it as needed while logged in.
 
 ### Challenges:
 This project was challenging in getting the React components and data to make use of firebase's authentication and storage feature working for users who are authenticated and associating their saved data with their accounts so they could save it and load it when signed in under their profile.
