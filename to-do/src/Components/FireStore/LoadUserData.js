@@ -30,12 +30,6 @@ const LoadUserData = ({activeUser, data, handleData, tasks, handleTasks}) => {
           
         };
 
-        // const displayTasks = (data) => {
-        //   handleTasks(data)
-        //   console.log(data)
-        // }
-        // displayTasks("tasks are", data)
-
     return (       
       <div className="load_btn">
                 <button onClick={loadUserData} >Load</button>
