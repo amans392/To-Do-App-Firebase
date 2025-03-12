@@ -1,6 +1,3 @@
-//working on authentication and routing: https://www.youtube.com/watch?v=PngrpszT3aY
-//current-time: https://youtu.be/PngrpszT3aY?t=699
-
 import { useState } from 'react';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
