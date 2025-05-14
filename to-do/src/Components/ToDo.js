@@ -8,7 +8,7 @@ const ToDo = ({tasks, handleTasks, value, handleValue, activeUser, data, handleD
 //captures input field data values
 const handleClick = (event) => {
     event.preventDefault();
-  //creates a copy of the array of tasks
+  //variable updatedTasks creates a copy of the array of tasks
       const updatedTasks = tasks.slice();
       //adds the value from the input field to the list of tasks
       updatedTasks.push(value);
@@ -90,8 +90,8 @@ const handleClick = (event) => {
                       <li key={task} id={index}>
                          {task}
                         <button
-                        onClick={() => handleDelete(index)}>
-                          Delete
+                        onClick={() => handleDelete(index)}>   
+                        X                     
                         </button>
                       </li>       
                           )}
@@ -139,7 +139,7 @@ const handleClick = (event) => {
                         {task}    
                         <button
                         onClick={() => handleDelete(index)}>
-                          Delete
+                          X
                         </button>            
                       </li>       
                     )        

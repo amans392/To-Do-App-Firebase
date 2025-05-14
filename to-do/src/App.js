@@ -23,14 +23,17 @@ function App() {
     setActiveUser(user);
   };
 
+  //function created for setting tasks on the task list to store in state
   const handleTasks = (t) => {
     setTasks(t);
   };
 
+  //function created to store value data in state
   const handleValue = (v) => {
     setValue(v);
   };
 
+  //function created to store user data in state
   const handleData = (d) => {
     setData(d);
     setTasks(d);
@@ -58,9 +61,9 @@ function App() {
 
           <Route path="/private" 
                 element={<ProtectedRoute activeUser={activeUser}>
-                  <Private tasks={tasks} setUser={setUser} activeUser={activeUser} value={value} 
+                  <Private tasks={tasks} handleTasks={handleTasks} setUser={setUser} activeUser={activeUser} value={value} 
                   handleValue={handleValue} data={data} 
-                  handleData={handleData} handleTasks={handleTasks}
+                  handleData={handleData} 
                   /> </ProtectedRoute>}
           ></Route>  
         </Routes>

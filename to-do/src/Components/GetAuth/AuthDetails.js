@@ -32,7 +32,6 @@ const AuthDetails = ({handleData, setUser, activeUser}) => {
             return () => {
                 unsubscribe();
             }
-    //added empty depenency array so it only runs when component loads
     }, [setUser]);
 
     //returns an h2 loading tag if state is loading

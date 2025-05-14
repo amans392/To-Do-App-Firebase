@@ -5,7 +5,7 @@ import { useState } from "react";
 import React from 'react';
 
 //passed in event from email and password onChange
-const SignIn = ({handleToggle, }) => {
+const SignIn = ({handleToggle }) => {
 
 //state variables created for email and password setting in scope of SignIn component
 //for use between functions
